@@ -1,20 +1,29 @@
 
 package banka;
 
+import java.util.Scanner;
 
 public class Banka 
 { 
     public static void main(String[] args) 
     {
-        Ucet uc1 = new Ucet("samo","CA0012");
+        Scanner scanner = new Scanner(System.in);
+        
+        Ucet uc1 = new Ucet(scanner.next(),scanner.next());
         uc1.menu();
+        
     }
 }
 
-*********************************Class Ucet********************************************
+
+
+******************************class ucet*************************
 package banka;
+
 import java.util.Scanner;
-public class Ucet {
+
+public class Ucet 
+{
     private int zostatok;
     private int predoslaTransakcia;
     private String meno;
@@ -65,7 +74,8 @@ public class Ucet {
         System.out.println("B. Vklad");
         System.out.println("C. Výber");
         System.out.println("D. Predošlá transakcia");
-        System.out.println("E. Koniec");
+        System.out.println("E. Napoveda");
+        System.out.println("F. Koniec");
         
         do
         {
@@ -79,7 +89,7 @@ public class Ucet {
             {
                 case 'A':
                     System.out.println("--------------------------------------");
-                    System.out.println("Zostatok =  "+zostatok);
+                    System.out.println("Zostatok =  "+zostatok+"€");
                     System.out.println("--------------------------------------");
                     System.out.println("\n"); 
                     break;
@@ -107,8 +117,20 @@ public class Ucet {
                     posldenaTransakcia();
                     System.out.println("--------------------------------------");
                     System.out.println("\n");
-                    
+                    break;
                 case 'E':
+                    System.out.println("--------------------------------------");
+                    System.out.println("A. Zostatok");
+                    System.out.println("B. Vklad");
+                    System.out.println("C. Výber");
+                    System.out.println("D. Predošlá transakcia");
+                    System.out.println("E. Napoveda");
+                    System.out.println("F. Koniec");
+                    System.out.println("--------------------------------------");
+                    System.out.println("\n");   
+                    break;
+                    
+                case 'F':
                     System.out.println("**************************************");
                     break;
                             
@@ -117,10 +139,7 @@ public class Ucet {
                     break;  
             }
         }
-        while(option != 'E');
+        while(option != 'F');
             System.out.println("Dovidenia!");
-  
-
-
     }
 }
